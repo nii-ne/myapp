@@ -6,48 +6,46 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Basic ListView 2",
+      title: "ListView Horizontal",
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Basic ListView 2 Example"),
+          title: Text("ListView Horizontal Example"),
         ),
-        body: ListView(children: <Widget>[
-          ListTile(
-            leading: Icon(Icons.directions_railway),
-            title: Text("08:00"),
-            subtitle: Text("BKK - CNX"),
-            enabled: true,
-            onTap: () {
-              print("click");
-            },
-            trailing: Icon(Icons.notifications_none),
-          ),
-          ListTile(
-            selected: true,
-            leading: Icon(Icons.directions_bus),
-            title: Text("18:00"),
-            subtitle: Text("CNX - BKK"),
-            trailing: Icon(Icons.notifications_none),
-          ),
-          ListTile(
-            leading: Icon(Icons.directions_boat),
-            title: Text("09:00"),
-            subtitle: Text("BKK - CNX"),
-            trailing: Icon(Icons.notifications_none),
-          ),
-          ListTile(
-            leading: Icon(Icons.directions_car),
-            title: Text("17:00"),
-            subtitle: Text("BKK - CNX"),
-            trailing: Icon(Icons.notifications_none),
-          ),
-          ListTile(
-            leading: Icon(Icons.directions_bike),
-            title: Text("03:00"),
-            subtitle: Text("BKK - CNX"),
-            trailing: Icon(Icons.notifications_none),
-          ),
-        ]),
+        body: ListView(
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            Container(
+              alignment: FractionalOffset.center,
+              width: 150,
+              color: Colors.red,
+              child: Text("RED",style: TextStyle(fontSize: 30,color: Colors.white),),
+            ),
+            Container(
+              alignment: FractionalOffset.center,
+              width: 150,
+              color: Colors.green,
+              child: Text("GREEN",style: TextStyle(fontSize: 30,color: Colors.white),),
+            ),
+            Container(
+              alignment: FractionalOffset.center,
+              width: 150,
+              color: Colors.blue,
+              child: Text("BLUE",style: TextStyle(fontSize: 30,color: Colors.white),),
+            ),
+            Container(
+              alignment: FractionalOffset.center,
+              width: 150,
+              color: Colors.yellow,
+              child: Text("YELLOW",style: TextStyle(fontSize: 30,color: Colors.white),),
+            ),
+            Container(
+              alignment: FractionalOffset.center,
+              width: 150,
+              color: Colors.grey,
+              child: Text("GREY",style: TextStyle(fontSize: 30,color: Colors.white),),
+            ),
+          ],
+        ),
       ),
     );
   }
