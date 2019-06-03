@@ -26,6 +26,21 @@ class MyApp extends StatelessWidget {
               "Column 2",
               style: TextStyle(fontSize: 15),
             ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: <Widget>[
+                Text(
+                  "Row1",
+                  style: TextStyle(fontSize: 30),
+                ),
+                Text(
+                  "Row2",
+                  style: TextStyle(fontSize: 15),
+                ),
+              ],
+            )
           ],
         ),
       ),
