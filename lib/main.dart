@@ -3,49 +3,35 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  final List<String> items =
+      List<String>.generate(20, (index) => "Item : ${++index}");
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "ListView Horizontal",
+      title: "ListView builder",
       home: Scaffold(
         appBar: AppBar(
-          title: Text("ListView Horizontal Example"),
+          title: Text("ListView builder Example"),
         ),
-        body: ListView(
-          scrollDirection: Axis.horizontal,
-          children: <Widget>[
-            Container(
-              alignment: FractionalOffset.center,
-              width: 150,
-              color: Colors.red,
-              child: Text("RED",style: TextStyle(fontSize: 30,color: Colors.white),),
-            ),
-            Container(
-              alignment: FractionalOffset.center,
-              width: 150,
-              color: Colors.green,
-              child: Text("GREEN",style: TextStyle(fontSize: 30,color: Colors.white),),
-            ),
-            Container(
-              alignment: FractionalOffset.center,
-              width: 150,
-              color: Colors.blue,
-              child: Text("BLUE",style: TextStyle(fontSize: 30,color: Colors.white),),
-            ),
-            Container(
-              alignment: FractionalOffset.center,
-              width: 150,
-              color: Colors.yellow,
-              child: Text("YELLOW",style: TextStyle(fontSize: 30,color: Colors.white),),
-            ),
-            Container(
-              alignment: FractionalOffset.center,
-              width: 150,
-              color: Colors.grey,
-              child: Text("GREY",style: TextStyle(fontSize: 30,color: Colors.white),),
-            ),
-          ],
-        ),
+        body: ListView.builder(
+            itemCount: items.length,
+            itemBuilder: (context, index) {
+              return Column(
+                children: <Widget>[
+                  ListTile(
+                    leading: Icon(Icons.directions_bus),
+                    title: Text("${items[index]}"),
+                    subtitle: Text("BKK - CNX"),
+                    trailing: Icon(Icons.notifications_none),
+                  ),
+                  Divider(
+                    height: 2,
+                    color: Colors.grey.shade300,
+                  )
+                ],
+              );
+            }),
       ),
     );
   }
