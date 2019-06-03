@@ -12,35 +12,24 @@ class MyApp extends StatelessWidget {
           title: Text("Row & Column widget Example"),
         ),
         body: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.baseline,
-          textBaseline: TextBaseline.alphabetic,
-          textDirection: TextDirection.rtl,
           children: <Widget>[
-            FlutterLogo(),
-            Text(
-              "Column 1",
-              style: TextStyle(fontSize: 30),
+            FlutterLogo(
+              size: 50,
             ),
-            Text(
-              "Column 2",
-              style: TextStyle(fontSize: 15),
+            Container(
+              margin: EdgeInsets.only(left: 4),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text(
+                    "Artit",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  Text("Attasiri")
+                ],
+              ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                Text(
-                  "Row1",
-                  style: TextStyle(fontSize: 30),
-                ),
-                Text(
-                  "Row2",
-                  style: TextStyle(fontSize: 15),
-                ),
-              ],
-            )
           ],
         ),
       ),
