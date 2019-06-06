@@ -6,36 +6,30 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Stack Layout Circle Avatar",
+      title: "Expanded",
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Stack Layout Circle Avatar Example"),
+          title: Text("Expanded Example"),
         ),
-        body: Stack(
-          alignment: Alignment(
-            0.6,
-            0.6,
+        body: Padding(
+          padding: EdgeInsets.all(20),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                  child: Container(
+                child: Text(
+                  "Iphone XS 64 GB Color:Gray",
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                ),
+              )),
+              Container(
+                child: RaisedButton(
+                  onPressed: () {},
+                  child: Text("view"),
+                ),
+              )
+            ],
           ),
-          children: <Widget>[
-            CircleAvatar(
-              backgroundImage: NetworkImage(
-                  "https://dog-vs-cat.com/wp-content/uploads/2018/05/nnf3.jpg"),
-              radius: 100,
-            ),
-            Container(
-              padding: EdgeInsets.fromLTRB(12, 4, 12, 4),
-              decoration: BoxDecoration(
-                  color: Colors.black45,
-                  borderRadius: BorderRadius.circular(4)),
-              child: Text(
-                "Alaskan",
-                style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white),
-              ),
-            )
-          ],
         ),
       ),
     );
