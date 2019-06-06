@@ -3,36 +3,30 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  final List<String> items =
-      List<String>.generate(20, (index) => "Item : ${++index}");
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "ListView builder",
+      title: "Grid View",
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("ListView builder Example"),
-        ),
-        body: ListView.builder(
-            itemCount: items.length,
-            itemBuilder: (context, index) {
-              return Column(
-                children: <Widget>[
-                  ListTile(
-                    leading: Icon(Icons.directions_bus),
-                    title: Text("${items[index]}"),
-                    subtitle: Text("BKK - CNX"),
-                    trailing: Icon(Icons.notifications_none),
-                  ),
-                  Divider(
-                    height: 2,
-                    color: Colors.grey.shade300,
-                  )
-                ],
-              );
-            }),
-      ),
+          appBar: AppBar(
+            title: Text("Grid View Example"),
+          ),
+          body: GridView.extent(
+            maxCrossAxisExtent: 150,
+            padding: EdgeInsets.all(8),
+            children: _buildGridList(20),
+          )),
     );
+  }
+
+  List<Card> _buildGridList(int i) {
+    return List.generate(
+        i,
+        (index) => Card(
+              child: Image.network(
+                "http://hobby-play.com/wp-content/uploads/2016/08/ban160456.jpg",
+                fit: BoxFit.cover,
+              ),
+            ));
   }
 }
